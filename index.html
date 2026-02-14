@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Ti ❤️</title>
+<title>Para Kayla ❤️</title>
+
+<!-- Favicon corazón -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<text y=".9em" font-size="90">❤️</text>
+</svg>'>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -15,27 +21,32 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
     text-align:center;
     color:white;
     font-family: 'Dancing Script', cursive;
 }
 
 .container{
-    position:relative;
-    z-index:2;
+    padding:20px;
 }
 
 h1{
-    font-size:40px;
+    font-size:42px;
     text-shadow:0 0 15px rgba(255,255,255,0.9);
 }
 
-p{
-    font-size:24px;
+.nombre{
+    font-size:28px;
     margin-top:-10px;
-    text-shadow:0 0 10px rgba(255,255,255,0.7);
+}
+
+.mensaje{
+    font-size:22px;
+    max-width:400px;
+    margin:20px auto;
+    line-height:1.6;
+    text-shadow:0 0 10px rgba(255,255,255,0.8);
 }
 
 /* CONTENEDOR DEL CORAZÓN */
@@ -43,11 +54,11 @@ p{
     position:relative;
     width:260px;
     height:230px;
-    margin:40px auto;
-    animation: beat 1.2s infinite ease-in-out;
+    margin:35px auto;
+    animation: beat 1.3s infinite ease-in-out;
 }
 
-/* ANIMACIÓN DE LATIDO REAL */
+/* LATIDO */
 @keyframes beat{
     0% { transform: scale(1); }
     25% { transform: scale(1.08); }
@@ -56,7 +67,6 @@ p{
     100% { transform: scale(1); }
 }
 
-/* CORAZONES PEQUEÑOS */
 .small-heart{
     position:absolute;
     font-size:28px;
@@ -75,7 +85,7 @@ button{
     cursor:pointer;
     transition:0.3s;
     font-weight:bold;
-    margin-top:20px;
+    margin-top:15px;
 }
 
 button:hover{
@@ -89,9 +99,10 @@ button:hover{
     display:none;
 }
 
-video{
+iframe{
     width:95%;
     max-width:380px;
+    height:215px;
     border-radius:20px;
     box-shadow:0 0 25px rgba(0,0,0,0.4);
 }
@@ -102,16 +113,26 @@ video{
 
 <div class="container">
     <h1>Feliz Día del Amor ❤️</h1>
-    <p>Eres lo más hermoso que tengo 💕</p>
+    <div class="nombre">Kayla 💕</div>
+
+    <div class="mensaje">
+        Kayla, desde que llegaste a mi vida todo se siente diferente.
+        Me haces sonreír incluso en los días más simples.
+        Gracias por tu cariño, tu dulzura y por ser tú.
+        Hoy y siempre quiero recordarte lo especial que eres para mí.
+        Te quiero muchísimo ❤️
+    </div>
 
     <div class="heart-container" id="heartContainer"></div>
 
-    <button onclick="mostrarVideo()">Haz clic aquí 💌</button>
+    <button onclick="mostrarVideo()">Hay algo para ti 💌</button>
 
     <div id="videoContainer">
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-        </video>
+        <iframe 
+            src="https://www.youtube.com/embed/Q07zkSMbE6Y" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
     </div>
 </div>
 
@@ -120,7 +141,7 @@ function mostrarVideo(){
     document.getElementById("videoContainer").style.display = "block";
 }
 
-/* Coordenadas mejoradas para corazón grande */
+/* Coordenadas corazón grande */
 const heartPoints = [
 [130,30],[100,10],[70,5],[40,15],[20,40],
 [10,80],[25,120],[60,160],[130,210],
@@ -135,7 +156,6 @@ heartPoints.forEach((point, index)=>{
     heart.classList.add("small-heart");
     heart.innerHTML = "❤️";
 
-    /* Empiezan abajo */
     heart.style.left = "130px";
     heart.style.top = "250px";
 
